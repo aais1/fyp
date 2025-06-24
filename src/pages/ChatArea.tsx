@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const ChatArea = () => {
   // Initial messages with a user-bot conversation
@@ -19,7 +19,7 @@ const ChatArea = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Function to handle message sending
-  const sendMessage = e => {
+  const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input.trim()) {
       const userMessage = {

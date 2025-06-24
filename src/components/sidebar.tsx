@@ -38,7 +38,7 @@ const chatHistory = [
 ];
 
 export function AppSidebar() {
-  const { session } = useParams();
+  const session = useParams().session as string;
 
   return (
     <Sidebar className="bg-[#181818] text-white">

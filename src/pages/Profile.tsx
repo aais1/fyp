@@ -51,7 +51,7 @@ const Profile = () => {
 
       try {
         const response = await fetch(
-          'import.meta.VITE_BACKEND_URL/data/profile',
+          import.meta.env.VITE_BACKEND_URL + '/data/profile',
           {
             method: 'GET',
             headers: {
@@ -68,8 +68,8 @@ const Profile = () => {
         const data = await response.json();
         setProfile(data.data);
         formik.setFieldValue('name', data.data.name);
-      } catch (err: any) {
-        setError(err.message || 'Failed to load profile.');
+      } catch {
+        console.error('Error fetching profile:');
       } finally {
         setLoading(false);
       }

@@ -1,19 +1,8 @@
-import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const { user } = useAuth();
-  const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();
-
-  // Handle search form submission
-  const handleSearchSubmit = e => {
-    e.preventDefault(); // Prevent page refresh
-    if (searchQuery.trim()) {
-      navigate(`/chat?q=${searchQuery}`); // Redirect to /chat with the search query
-    }
-  };
 
   return (
     <div className="bg-white">

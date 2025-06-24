@@ -5,16 +5,13 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useAuth } from '@/contexts/AuthContext';
-import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export function Navbar() {
-  const { user, setUser } = useAuth();
+  const { setUser } = useAuth();
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
   const handleLogout = async () => {
-    setLoading(true);
     try {
       await fetch('import.meta.VITE_BACKEND_URL/auth/logout', {
         method: 'POST',
@@ -24,8 +21,6 @@ export function Navbar() {
       setUser(null);
     } catch (error) {
       console.error('Logout failed', error);
-    } finally {
-      setLoading(false);
     }
   };
   return (
