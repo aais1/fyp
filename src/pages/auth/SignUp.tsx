@@ -44,7 +44,7 @@ const SignUp = () => {
   ) => {
     try {
       const response = await axios.post(
-        'http://localhost:3069/auth/send-otp',
+        import.meta.env.VITE_BACKEND_URL + '/auth/send-otp',
         values
       );
 

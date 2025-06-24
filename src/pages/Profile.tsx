@@ -50,13 +50,16 @@ const Profile = () => {
       }
 
       try {
-        const response = await fetch('http://localhost:3069/data/profile', {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
+        const response = await fetch(
+          'import.meta.VITE_BACKEND_URL/data/profile',
+          {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error('Failed to fetch profile');
@@ -101,7 +104,7 @@ const Profile = () => {
 
       // Show updating toast
       toast.promise(
-        fetch('http://localhost:3069/data/profile', {
+        fetch('import.meta.VITE_BACKEND_URL/data/profile', {
           method: 'PATCH',
           headers: {
             Authorization: `Bearer ${token}`,

@@ -49,7 +49,7 @@ const VerifyOTP = () => {
     setResendLoading(true);
     try {
       console.log(email, name, password);
-      await axios.post('http://localhost:3069/auth/send-otp', {
+      await axios.post(import.meta.env.VITE_BACKEND_URL + '/auth/send-otp', {
         email,
         name,
         password,
@@ -74,7 +74,7 @@ const VerifyOTP = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        'http://localhost:3069/auth/verify-otp',
+        'import.meta.VITE_BACKEND_URL/auth/verify-otp',
         {
           email,
           otp: otpCode,

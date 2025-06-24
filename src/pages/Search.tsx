@@ -31,7 +31,7 @@ const Search = () => {
 
       // Fetch from API
       const response = await fetch(
-        `http://localhost:3069/data/faculty?${params.toString()}`,
+        `import.meta.VITE_BACKEND_URL/data/faculty?${params.toString()}`,
         {
           method: 'GET',
           credentials: 'include',

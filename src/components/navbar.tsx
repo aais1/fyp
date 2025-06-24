@@ -16,7 +16,7 @@ export function Navbar() {
   const handleLogout = async () => {
     setLoading(true);
     try {
-      await fetch('http://localhost:3069/auth/logout', {
+      await fetch('import.meta.VITE_BACKEND_URL/auth/logout', {
         method: 'POST',
         credentials: 'include',
       });
